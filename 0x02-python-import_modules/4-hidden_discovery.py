@@ -2,4 +2,7 @@
 import hidden_4
 
 if __name__ == "__main__":
-    dir(hidden_4)
+    content = dir(hidden_4)
+    x = sorted(name for name in content if not name.startswith("__"))
+    for func in x:
+        print(func)
