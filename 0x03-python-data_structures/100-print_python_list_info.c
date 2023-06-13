@@ -25,4 +25,6 @@ void print_python_list_info(PyObject *p);
 		m = PyList_GetItem(p, t);
 		printf("%s\n", Py_TYPE(m)->tp_name);
 	}
+
+	return;
 }
