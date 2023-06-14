@@ -2,8 +2,6 @@
 def search_replace(my_list, search, replace):
     if my_list is None or len(my_list) == 0:
         return None
-    list_copy = my_list[:]
-    for idx, elem in enumerate(list_copy):
-        if elem == search:
-            list_copy[idx] = replace
-    return list_copy
+    ls_copy = my_list[:]
+    ls_copy = [t if t != search else replace for t in my_list]
+    return ls_copy
