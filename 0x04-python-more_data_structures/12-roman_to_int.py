@@ -12,6 +12,8 @@ def roman_to_int(roman_string):
 
     total = 0
     p = 0
+    if roman_string is None or type(roman_string) != str:
+        return 0
     for char in roman_string:
         for key, value in roman_numerals.items():
             if char == key:
