@@ -1,0 +1,39 @@
+The ``say_my_name`` module
+-----------------------------------
+The following are test cases for the ``say_my_name()`` module
+-----------------------------------
+
+===========================
+imort module
+===========================
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+===========================
+Tests
+===========================
+
+>>> say_my_name("John", "Smith")
+'My name is John Smith'
+
+>>> say_my_name("Walter", "White")
+'My name is Walter White'
+
+>>> say_my_name("Bob")
+'My name is Bob '
+
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("Name", 1)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(None, "Other")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("Name", None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
