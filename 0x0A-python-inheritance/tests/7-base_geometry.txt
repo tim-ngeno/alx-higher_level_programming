@@ -31,3 +31,8 @@ Pass None value for integer:
 >>> bg.integer_validator("John", None)
 Traceback (most recent call last):
 TypeError: John must be an integer
+
+Pass a float type:
+>>> bg.integer_validator("name", 4.5)
+Traceback (most recent call last):
+TypeError: name must be an integer
