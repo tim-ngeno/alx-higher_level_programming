@@ -1,0 +1,33 @@
+Test Cases for Module 7-base_geometry
+=======================================
+
+import module
+=======================================
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Create an instance of the class BaseGeometry:
+>>> bg = BaseGeometry()
+
+Pass correct arguments to the class method integer_validator:
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+Pass incorrect arguments:
+>>> bg.integer_validator("name", "Another name")
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+Pass an integer value == 0
+>>> bg.integer_validator("name", 0)
+Traceback (most recent call last):
+ValueError: name must be greater than 0
+
+Pass integer less than 0:
+>>> bg.integer_validator("name", -3)
+Traceback (most recent call last):
+ValueError: name must be greater than 0
+
+Pass None value for integer:
+>>> bg.integer_validator("John", None)
+Traceback (most recent call last):
+TypeError: John must be an integer
