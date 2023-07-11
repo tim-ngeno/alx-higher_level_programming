@@ -13,10 +13,7 @@ for x in range(1, len(argv)):
     args.append(argv[x])
 
 filename = "add_item.json"
-try:
-    json_list = load_from_json_file(filename)
-except FileNotFoundError:
-    json_list = []
 
 # save the args to a json file
 save_to_json_file(args, filename)
+load_from_json_file(filename)
