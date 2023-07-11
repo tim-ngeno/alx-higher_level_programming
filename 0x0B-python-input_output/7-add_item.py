@@ -14,9 +14,9 @@ for x in range(1, len(argv)):
 
 filename = "add_item.json"
 try:
-    load_from_json_file(filename)
+    json_list = load_from_json_file(filename)
 except FileNotFoundError:
-    args = []
+    json_list = []
 
 # save the args to a json file
 save_to_json_file(args, filename)
