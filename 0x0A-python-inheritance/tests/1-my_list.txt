@@ -32,3 +32,8 @@ sort list with negative numbers:
 >>> a.append(-9)
 >>> a.print_sorted()
 [-9, -8, -5, 2, 6]
+
+Check for str method:
+>>> b = __import__('1-my_list').MyList.__str__
+>>> b
+<slot wrapper '__str__' of 'object' objects>
