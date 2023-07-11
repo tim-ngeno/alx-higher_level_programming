@@ -9,8 +9,8 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 # add the program's arguments to a list
 args = []
-for x in range(1, len(argv)):
-    args.append(argv[x])
+for x in argv[1:]:
+    args.append(x)
 
 filename = "add_item.json"
 
