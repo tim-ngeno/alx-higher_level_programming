@@ -10,4 +10,5 @@ def load_from_json_file(filename):
         filename: file path
     """
     with open(filename, "r") as file:
-        json.load(file)
+        x = json.load(file)
+    return x
