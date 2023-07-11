@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Return a dictionary description"""
-import json
 
 
 def class_to_json(obj):
@@ -9,4 +8,4 @@ def class_to_json(obj):
     Args:
         obj (cls): an instance of a class
     """
-    return json.dumps(obj.__dict__)
+    return (obj.__dict__)
