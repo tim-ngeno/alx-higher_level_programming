@@ -26,11 +26,41 @@ Traceback (most recent call last):
 ValueError: name must be greater than 0
 
 Pass integer less than 0:
->>> bg.integer_validator("name", -3)
+>>> bg.integer_validator("age", -3)
 Traceback (most recent call last):
-ValueError: name must be greater than 0
+ValueError: age must be greater than 0
+
+Test for value argument having a tuple
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+Test for list data type
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+Test for boolean values:
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+Test for value of type dictionary:
+>>> bg.integer_validator("age", {2, 3})
+Traceback (most recent call last):
+TypeError: age must be an integer
 
 Pass None value for integer:
 >>> bg.integer_validator("John", None)
 Traceback (most recent call last):
 TypeError: John must be an integer
+
+Test for area() present
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+Test for integer_validator present
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
