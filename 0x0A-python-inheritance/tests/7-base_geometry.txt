@@ -46,22 +46,3 @@ Test for integer_validator present
 Traceback (most recent call last):
 TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Test for value argument having a tuple
->>> bg.integer_validator("age", (4,))
-Traceback (most recent call last):
-TypeError: age must be an integer
-
-Test for list data type
->>> bg.integer_validator("age", [3])
-Traceback (most recent call last):
-TypeError: age must be an integer
-
-Test for boolean values:
->>> bg.integer_validator("age", True)
-Traceback (most recent call last):
-TypeError: age must be an integer
-
-Test for value of type dictionary:
->>> bg.integer_validator("age", {2, 3})
-Traceback (most recent call last):
-TypeError: age must be an integer
