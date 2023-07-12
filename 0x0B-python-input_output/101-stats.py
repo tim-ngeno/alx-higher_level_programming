@@ -24,11 +24,13 @@ try:
             status_count[line[-2]] += 1
             i += 1
             size += int(line[-1])
+
         if i % 10 == 0:
             print("File size: {:d}".format(size))
             for key, value in sorted(status_count.items()):
                 if value:
                     print("{:s}: {:d}".format(key, value))
+
     print("File size: {:d}".format(size))
     for key, value in sorted(status_count.items()):
         if value:
