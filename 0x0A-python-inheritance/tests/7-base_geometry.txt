@@ -41,6 +41,11 @@ Test for area() present
 Traceback (most recent call last):
 Exception: area() is not implemented
 
+Test for value argument list:
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
 Test for value argument having a tuple
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
@@ -61,8 +66,3 @@ Pass None value for integer:
 Traceback (most recent call last):
 TypeError: John must be an integer
 
-
->>> bg = BaseGeometry()
->>> bg.integer_validator()
-Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
