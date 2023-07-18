@@ -98,8 +98,9 @@ class Rectangle(Base):
             print()
 
         for i in range(self.__height):
-            print(''.join(' ' for x in range(self.__x - 1)),
-                  ''.join('#' for y in range(self.__width)))
+            print(' ' * self.__x + '#' * self.__width)
+            # print(''.join(' ' for x in range(1, self.__x)) +
+            #       ''.join('#' for y in range(self.__width)))
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
