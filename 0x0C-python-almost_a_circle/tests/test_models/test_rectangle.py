@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Test cases for module Rectangle
 """
+import sys
 import unittest
+from io import StringIO
 from models.rectangle import Rectangle
 MAX_INT = 10000
 
@@ -27,15 +29,45 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(0, 0)
 
+    def test_initialize_zero_width(self):
+        """Test initialize with zero width"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 2)
+
+    def test_initialize_zero_height(self):
+        """Test initialize with zero height"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(2, 0)
+
     def test_initialize_negative(self):
         """Test initialization with negative values"""
         with self.assertRaises(ValueError):
             r = Rectangle(-3, -6)
 
-    def test_initialize_noninteger(self):
-        """Test initialize nonintegers"""
+    def test_initialize_negative_width(self):
+        """Test initialize instance with negative width"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(-1, 3)
+
+    def test_initialize_negative_height(self):
+        """Test initialize with negative height"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(1, -2)
+
+    def test_initialize_negative_y(self):
+        """Test initialize negative y vector"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(1, 2, 3, -4)
+
+    def test_initialize_noninteger_width(self):
+        """Test initialize noninteger width"""
         with self.assertRaises(TypeError):
             r = Rectangle("4", 6)
+
+    def test_initialize_noninteger_height(self):
+        """Test initialize with non integer height"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(5, "4")
 
     def test_initialize_float(self):
         """Test initialize with floats"""
@@ -206,6 +238,36 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle("5", 4).area()
 
+    def test_display(self):
+        """Test the display method"""
+        r = Rectangle(2, 3)
+        output = "##\n##\n##\n"
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), output)
+
+    def test_display_with_x_y(self):
+        """Test display with x and y values"""
+        r = Rectangle(2, 3, 1, 1)
+        output = "\n ##\n ##\n ##\n"
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), output)
+
+    def test_display_without_y(self):
+        """Test display without y"""
+        r = Rectangle(2, 2, 1)
+        output = " ##\n ##\n"
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), output)
+
     def test_to_dictionary(self):
         """Test to_dictionary method"""
         r = Rectangle(2, 3, 1, 1, 10)
@@ -292,6 +354,15 @@ class TestRectangle(unittest.TestCase):
         r.update(2, 8, 4)
         self.assertEqual(r.id, 2)
         self.assertEqual(r.width, 8)
+
+    def test_save_to_file_none(self):
+        """Test saving None type to file"""
+        with self.assertRaises(TypeError):
+            self.assertEqual(Rectangle.save_to_file(None), None)
+
+    def test_save_to_file_empty_list(self):
+        """Test save empty list to file"""
+        self.assertEqual(Rectangle.save_to_file([]), None)
 
 
 if __name__ == "__main__":
