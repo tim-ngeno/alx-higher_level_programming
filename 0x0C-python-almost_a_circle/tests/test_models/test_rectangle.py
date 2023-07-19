@@ -238,6 +238,11 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle("5", 4).area()
 
+    def test_display_present(self):
+        """Test display method present"""
+        with self.assertRaises(TypeError):
+            Rectangle.display()
+
     def test_display(self):
         """Test the display method"""
         r = Rectangle(2, 3)
