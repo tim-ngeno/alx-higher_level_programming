@@ -33,6 +33,26 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             s = Square(0)
 
+    def test_initialize_string_x(self):
+        """Test initialize with string x"""
+        with self.assertRaises(TypeError):
+            s = Square(1, "5")
+
+    def test_initialize_string_y(self):
+        """Test initialize with string y"""
+        with self.assertRaises(TypeError):
+            s = Square(1, 2, "4")
+
+    def test_initialize_negative_x(self):
+        """Test initialize with negative x"""
+        with self.assertRaises(ValueError):
+            s = Square(1, -2)
+
+    def test_initialize_negative_y(self):
+        """Test initialize with negative y"""
+        with self.assertRaises(ValueError):
+            s = Square(1, 2, -4)
+
     def test_initialize_values(self):
         """Test for default values of x and y"""
         s = Square(5)
@@ -165,6 +185,50 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(s.to_dictionary(), {
                          'id': 6, 'size': 2, 'x': 3, 'y': 4})
+
+    def test_str_method(self):
+        """Test __str__ method"""
+        self.assertEqual(Square(3, 4, 5, 6).__str__(),
+                         '[Square] (6) 4/5 - 3')
+
+    def test_create(self):
+        """Test creation of new Square"""
+        s = Square.create(**{'id': 89})
+        self.assertEqual(s.id, 89)
+
+    def test_create_size(self):
+        """Test creation of new square with size"""
+        s = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+
+    def test_create_with_x(self):
+        """Test creation of new square with x vector"""
+        s = Square.create(**{'id': 89, 'size': 1, 'x': 2})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+
+    def test_create_with_x_y(self):
+        """Test creation of new square with x,y vector"""
+        s = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 3)
+
+    def test_save_to_file_none(self):
+        """Test saving to file"""
+        with self.assertRaises(TypeError):
+            Square.save_to_file(None)
+
+    def test_save_to_file_empty_list(self):
+        """Test saving to file an empty list"""
+        self.assertEqual(Square.save_to_file([]), None)
+
+    def test_save_to_file_square(self):
+        """Test saving square object to file"""
+        self.assertEqual(Square.save_to_file([Square(1)]), None)
 
 
 if __name__ == "__main__":
