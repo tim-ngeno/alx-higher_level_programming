@@ -369,6 +369,13 @@ class TestRectangle(unittest.TestCase):
         """Test save empty list to file"""
         self.assertEqual(Rectangle.save_to_file([]), None)
 
+    def test_load_from_file(self):
+        """Test loading from file"""
+        r = Rectangle(2, 3, 4, 5)
+        r2 = Rectangle(1, 2, 3, 4)
+        Rectangle.save_to_file([r, r2])
+        self.assertIsInstance(Rectangle.load_from_file(), list)
+
 
 if __name__ == "__main__":
     unittest.main()

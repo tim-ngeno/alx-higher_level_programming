@@ -230,6 +230,13 @@ class TestSquare(unittest.TestCase):
         """Test saving square object to file"""
         self.assertEqual(Square.save_to_file([Square(1)]), None)
 
+    def test_load_from_file(self):
+        """Test loading from a file"""
+        s = Square(4)
+        s2 = Square(6)
+        Square.save_to_file([s, s2])
+        self.assertIsInstance(Square.load_from_file(), list)
+
 
 if __name__ == "__main__":
     unittest.main()
