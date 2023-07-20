@@ -128,7 +128,7 @@ class Rectangle(Base):
     def __str__(self):
         """Defines the print representation of a rectangle instance
         """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y,
             self.__width, self.__height
         )
