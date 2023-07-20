@@ -56,8 +56,9 @@ class Base:
             objs = []
         else:
             as_dict = [obj.to_dictionary() for obj in list_objs]
-            objs = cls.to_json_string(as_dict)
+            objs = json.loads(cls.to_json_string(as_dict))
             # objs = cls.to_json_string(as_dict)
+
         with open("{}.json".format(cls.__name__), "w") as file:
             json.dump(objs, file)
             # dumping twice leads to escape characters being
