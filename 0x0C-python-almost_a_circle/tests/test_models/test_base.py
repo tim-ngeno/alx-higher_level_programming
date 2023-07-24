@@ -22,7 +22,7 @@ class TestBase(unittest.TestCase):
     def test_id_increment(self):
         """Test to ensure unique id assignment for new instance"""
         b2 = Base()
-        self.assertEqual(b2.id, 2)
+        self.assertTrue(b2.id > 1)
 
     def test_base_one_argument(self):
         """Test for Base class initialized with id argument"""

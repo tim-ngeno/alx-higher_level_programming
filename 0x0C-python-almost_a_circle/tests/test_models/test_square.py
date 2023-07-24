@@ -219,8 +219,7 @@ class TestSquare(unittest.TestCase):
 
     def test_save_to_file_none(self):
         """Test saving to file"""
-        with self.assertRaises(TypeError):
-            Square.save_to_file(None)
+        self.assertEqual(Square.save_to_file(None), None)
 
     def test_save_to_file_empty_list(self):
         """Test saving to file an empty list"""

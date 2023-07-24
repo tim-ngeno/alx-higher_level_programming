@@ -362,8 +362,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_save_to_file_none(self):
         """Test saving None type to file"""
-        with self.assertRaises(TypeError):
-            self.assertEqual(Rectangle.save_to_file(None), None)
+        self.assertEqual(Rectangle.save_to_file(None), None)
 
     def test_save_to_file_empty_list(self):
         """Test save empty list to file"""
