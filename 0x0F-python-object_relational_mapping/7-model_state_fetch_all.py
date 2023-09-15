@@ -28,3 +28,6 @@ if __name__ == "__main__":
     # Query the DB
     for instance in session.query(State).order_by(State.id):
         print("{}: {}".format(instance.id, instance.name))
+
+    # Close the session
+    session.close()
