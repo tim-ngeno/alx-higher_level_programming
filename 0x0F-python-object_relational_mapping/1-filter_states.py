@@ -22,14 +22,14 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Execute the SQL query
-    cur.execute(
-        "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", ('N%',))
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
     # Fetch all rows from the table
     rows = cur.fetchall()
 
     for row in rows:
-        print(row)
+        if row[1].startswith("N"):
+            print(row)
 
     # Close the cursor and connection
     cur.close()
