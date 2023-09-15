@@ -6,22 +6,32 @@ Filter states by user input
 import MySQLdb
 from sys import argv
 
+
 if __name__ == "__main__":
-    username = argv[1]
-    password = argv[2]
-    database = argv[3]
-    state_name = argv[4]
+    DB_HOST = 'localhost'
+    USER = argv[1]
+    PASSWORD = argv[2]
+    DB_NAME = argv[3]
+    STATE_NAME = argv[4]
+    DB_PORT = 3306
 
-    db = MySQLdb.connect(
-        host='localhost', user=username, password=password,
-        db=database, port=3306
-    )
+    # Establish the connection
+    db = MySQLdb.connect(host=DB_HOST, user=USER,
+                         passwd=PASSWORD, db=DB_NAME, port=DB_PORT)
 
+    # Create a cursor object to interact with the database
     cur = db.cursor()
-    cur.execute(
-        "SELECT * FROM states WHERE name = %s", (state_name,)
-    )
 
+    # Execute the SQL query
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (STATE_NAME,))
+
+    # Fetch all rows from the table
     rows = cur.fetchall()
+
     for row in rows:
         print(row)
+
+    # Close the cursor and connection
+    cur.close()
+    db.close()
