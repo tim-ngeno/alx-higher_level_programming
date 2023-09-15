@@ -8,7 +8,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    DB_HOST = 'localhost'
+    DB_HOST = "localhost"
     USER = argv[1]
     PASSWORD = argv[2]
     DB_NAME = argv[3]
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Execute the SQL query
-    sql_temp = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    sql_temp = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
     sql_query = sql_temp.format()
     cur.execute(sql_query, (STATE_NAME,))
 
