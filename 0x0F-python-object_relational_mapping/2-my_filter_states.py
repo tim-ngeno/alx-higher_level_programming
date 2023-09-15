@@ -24,8 +24,8 @@ if __name__ == "__main__":
 
     # Execute the SQL query
     sql_temp = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
-    sql_query = sql_temp.format()
-    cur.execute(sql_query, (STATE_NAME,))
+    sql_query = sql_temp.format(STATE_NAME)
+    cur.execute(sql_query)
 
     # Fetch all rows from the table
     rows = cur.fetchall()
