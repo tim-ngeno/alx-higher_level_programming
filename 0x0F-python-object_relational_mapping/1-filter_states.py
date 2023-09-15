@@ -8,7 +8,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    DB_HOST = 'localhost'
+    DB_HOST = "localhost"
     USER = argv[1]
     PASSWORD = argv[2]
     DB_NAME = argv[3]
