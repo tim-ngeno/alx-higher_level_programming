@@ -23,10 +23,11 @@ if __name__ == "__main__":
 
     # Execute the SQL query
     sql_template = """
-    SELECT * FROM states WHERE name = %s ORDER BY states.id ASC
+    SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY
+    states.id ASC
     """
-    sql_query = sql_template.format()
-    cur.execute(sql_query, (argv[4], ))
+    sql_query = sql_template.format(argv[4])
+    cur.execute(sql_query)
 
     # Fetch all rows from the table
     rows = cur.fetchall()
