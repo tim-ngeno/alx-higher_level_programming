@@ -22,8 +22,8 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Execute the SQL query
-    cur.execute(
-        "SELECT * FROM states WHERE UPPER(name) LIKE %s ORDER BY id	ASC", ('N%',))
+    cur.execute("SELECT * FROM states WHERE UPPER(name) LIKE %s \
+	ORDER BY id ASC", ('N%',))
 
     # Fetch all rows from the table
     rows = cur.fetchall()
