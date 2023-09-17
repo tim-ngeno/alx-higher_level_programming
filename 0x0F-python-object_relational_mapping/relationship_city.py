@@ -12,10 +12,16 @@ from sqlalchemy.orm import relationship
 class City(Base):
     """
     Defines a city class to link to the `cities` table
+
+    Attributes:
+        __tablename__ (str): table name for the City model objects
+        id (int): unique identifier of a city object
+        name (str): name of a City object
+        state_id (int): References the State a city object belongs to
     """
     __tablename__ = "cities"
     id = Column(Integer, primary_key=True)
-    name = Column(String(128))
+    name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey("states.id"))
 
     # Creates a one-to-many relationship
