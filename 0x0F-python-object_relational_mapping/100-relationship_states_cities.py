@@ -26,7 +26,7 @@ if __name__ == "__main__":
     session = Session()
 
     state = State(name="California",
-                  cities=City(name=["San Fransisco"]))
+                  cities=[City(name="San Fransisco")])
 
     session.add(state)
     session.commit()

@@ -21,5 +21,4 @@ class State(Base):
         "City",
         back_populates="state",
         cascade="all, delete, delete-orphan",
-        uselist=False
     )
