@@ -20,7 +20,7 @@ class City(Base):
         state_id (int): References the State a city object belongs to
     """
     __tablename__ = "cities"
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
 
