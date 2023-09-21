@@ -26,5 +26,5 @@ class City(Base):
 
     # Creates a one-to-many relationship
     state = relationship(
-        "State", back_populates="cities", uselist=False,
+        "State", back_populates="cities",
     )
