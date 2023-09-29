@@ -10,6 +10,6 @@ hbtn_url = urllib.request.Request("https://alx-intranet.hbtn.io/status")
 with urllib.request.urlopen(hbtn_url) as req:
     response = req.read()
 
-print("Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 content: {}".format(
-    type(response), response, response.decode('UTF-8')
-))
+    print("Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 content: {}".format(
+        type(response), response, response.decode('UTF-8')
+    ))
