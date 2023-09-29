@@ -12,9 +12,9 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(
         owner, repo
     )
-
-    res = requests.get(url)
+    params = {"per_page": 10}
+    res = requests.get(url, params)
     as_json = res.json()
 
-    for item in as_json[:10]:
+    for item in as_json:
         print("{}: {}".format(item["sha"], item["commit"]["author"]["name"]))
