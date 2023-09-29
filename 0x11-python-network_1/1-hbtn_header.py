@@ -7,11 +7,13 @@ Send a request to a URL and display the value of the
 import sys
 import urllib.request
 
-url_address = sys.argv[1]
 
-with urllib.request.urlopen(url_address) as res:
-    headers = res.info()
+if __name__ == "__main__":
+    url_address = sys.argv[1]
 
-    # Check for desired header
-    x_request_id = headers.get('X-Request-Id')
-    print(x_request_id)
+    with urllib.request.urlopen(url_address) as res:
+        headers = res.info()
+
+        # Check for desired header
+        x_request_id = headers.get('X-Request-Id')
+        print(x_request_id)
