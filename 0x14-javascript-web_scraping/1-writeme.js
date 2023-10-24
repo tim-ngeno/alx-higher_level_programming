@@ -1,6 +1,4 @@
 #!/usr/bin/node
-// Writes a String to a file
-
 const fs = require('fs');
 
 if (process.argv.length <= 3) {
@@ -14,7 +12,5 @@ const content = process.argv[3];
 fs.writeFile(filePath, content, 'utf-8', (error) => {
   if (error) {
     console.error(error);
-  } else {
-    console.log('Save success!');
   }
 });
