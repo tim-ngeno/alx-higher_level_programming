@@ -6,8 +6,10 @@ if (process.argv.length <= 2) {
   process.exit(1);
 }
 
-url = process.argv[2];
+const url = process.argv[2];
 
 request(url, (error, response, body) => {
-  console.log(`code: ${response.statusCode}`);
+  if (!error && body) {
+    console.log(`code: ${response.statusCode}`);
+  }
 });
