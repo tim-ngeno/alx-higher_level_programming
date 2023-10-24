@@ -12,7 +12,7 @@ request(endpoint, (error, response, body) => {
   if (!error && response.statusCode === 200) {
     const films = JSON.parse(body).results;
 
-    let count = 0;
+    const count = 0;
     films.forEach(film => {
       if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
         count += 1;
