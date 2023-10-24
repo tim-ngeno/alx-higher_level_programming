@@ -10,15 +10,7 @@ const endpoint = process.argv[2];
 
 request(endpoint, (error, response, body) => {
   if (!error && response.statusCode === 200) {
-    const films = JSON.parse(body).results;
-
-    const count = 0;
-    films.forEach(film => {
-      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        count += 1;
-      }
-    });
-
+    const count = body.split('/people/18/').length - 1;
     console.log(count);
   } else {
     console.log(error);
