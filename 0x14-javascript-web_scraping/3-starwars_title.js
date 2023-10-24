@@ -6,8 +6,8 @@ if (process.argv.length <= 2) {
   process.exit(1);
 }
 
-const movie_id = process.argv[2];
-const endpoint = `https://swapi-api.alx-tools.com/api/films/${movie_id}`;
+const movieId = process.argv[2];
+const endpoint = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
 request(endpoint, (error, response, body) => {
   if (!error && response.statusCode === 200) {
