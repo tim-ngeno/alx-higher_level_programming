@@ -11,7 +11,7 @@ if (process.argv.length <= 3) {
 const content = process.argv[3];
 const filePath = process.argv[2];
 
-fs.writeFile(filePath, content, (error) => {
+fs.writeFile(filePath, content, 'utf8', (error) => {
   if (error) {
     console.error(error);
   } else {
