@@ -7,7 +7,7 @@ if (process.argv.length <= 2) {
 }
 
 const endpoint = process.argv[2];
-const characterId = '18';
+const characterId = 18;
 
 request(endpoint, (error, response, body) => {
   if (!error && response.statusCode === 200) {
